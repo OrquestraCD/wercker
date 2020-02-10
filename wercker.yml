@@ -1,4 +1,4 @@
-box: golang:1.10
+box: golang:1.13
 command-timeout: 30
 no-response-timeout: 15
 
@@ -16,29 +16,12 @@ build:
     - install-packages:
         checkpoint: pkgs
         packages: openssh-client pkg-config libsystemd-dev
-
-    - script:
-        name: install govendor
-        code: go get -u github.com/kardianos/govendor
-    
-    - script:
-        name: install dependencies
-        code: govendor sync
-
-    - script:
-        name: go vet
-        code: govendor vet +local
-
     # - golint:
     #     exclude: vendor
 
     - script:
         name: go test
-        code: govendor test -v +local
-
-    - script:
-        name: clear out the build binaries
-        code: rm -rf $GOPATH/pkg
+        code: go test ./... -v
 
     - script:
         name: compile linux_amd64
@@ -170,7 +153,7 @@ deploy:
 
 run-tests:
   box:
-    id: golang:1.7
+    id: golang:1.13
     volumes: $CODE_PATH /var/run/docker.sock
   steps:
       - script:

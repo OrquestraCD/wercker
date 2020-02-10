@@ -56,7 +56,7 @@ pullImages () {
   pullIfNeeded "golang"
   pullIfNeeded "postgres:9.6"
   pullIfNeeded "nginx"
-  pullIfNeeded "interactivesolutions/eatmydata-mysql-server"
+  pullIfNeeded "mysql"
 }
 
 basicTest() {
@@ -114,7 +114,7 @@ runTests1() {
   pullIfNeeded "ubuntu"
   pullIfNeeded "postgres:9.6"
   pullIfNeeded "nginx"
-  pullIfNeeded "interactivesolutions/eatmydata-mysql-server"  
+  pullIfNeeded "mysql"  
 
   #  The following tests must be skipped when run in a wercker pipeline 
   if [ -z ${WERCKER_ROOT} ]; then 

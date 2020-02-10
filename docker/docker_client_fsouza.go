@@ -163,12 +163,12 @@ func (c *DockerClient) AttachInteractive(containerID string, cmd []string, initi
 func (c *DockerClient) ResizeTTY(execID string) error {
 	ws, err := term.GetWinsize(os.Stdout.Fd())
 	if err != nil {
-		c.logger.Debugln("Error getting term size: %s", err)
+		c.logger.Debugln("Error getting term size", err)
 		return err
 	}
 	err = c.ResizeExecTTY(execID, int(ws.Height), int(ws.Width))
 	if err != nil {
-		c.logger.Debugln("Error resizing term: %s", err)
+		c.logger.Debugln("Error resizing term", err)
 		return err
 	}
 	return nil

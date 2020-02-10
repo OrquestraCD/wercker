@@ -151,7 +151,7 @@ func (s *WatchStep) watch(root string) (*fsnotify.Watcher, error) {
 			for _, pattern := range filters {
 				matchFull, err := filepath.Match(pattern, path)
 				if err != nil {
-					s.logger.Warnln("Bad exclusion pattern: %s", pattern)
+					s.logger.Warnln("Bad exclusion pattern", pattern)
 				}
 				if matchFull {
 					s.logger.Debugf("exclude (%s): %s", pattern, path)
