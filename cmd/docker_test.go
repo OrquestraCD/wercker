@@ -7,7 +7,7 @@ import (
 	"testing"
 
 	"github.com/docker/cli/cli/config"
-	"github.com/docker/docker/api/types"
+	"github.com/docker/cli/cli/config/types"
 	"github.com/stretchr/testify/suite"
 	"github.com/wercker/wercker/core"
 	"github.com/wercker/wercker/util"

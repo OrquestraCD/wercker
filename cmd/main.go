@@ -455,7 +455,7 @@ var (
 
 			opts.WorkflowName = c.Args().Get(0)
 			if opts.WorkflowName == "" {
-				cliLogger.Errorln("Missing workflow name to run\n")
+				cliLogger.Errorln("Missing workflow name to run")
 				cli.ShowCommandHelp(c, "workflow")
 				os.Exit(1)
 			}

@@ -8,7 +8,7 @@ import (
 	"os/exec"
 
 	"github.com/docker/cli/cli/config"
-	"github.com/docker/docker/api/types"
+	"github.com/docker/cli/cli/config/types"
 	"github.com/kr/pty"
 	"github.com/wercker/wercker/core"
 )

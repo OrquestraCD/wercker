@@ -7,7 +7,7 @@ services:
     POSTGRES_PASSWORD: test
     POSTGRES_USER: test
 - name: mysql
-  id:  interactivesolutions/eatmydata-mysql-server
+  id: mysql
   cmd: mysqld --innodb_flush_log_at_trx_commit=2 --innodb_log_buffer_size=3M --innodb_buffer_pool_size=180M --log-output=NONE --slow-query-log=0
   env:
     MYSQL_ROOT_PASSWORD: rootpasswd
@@ -96,7 +96,8 @@ build:
     - script:
       code: | 
         apt-get update
-        apt-get -y install mysql-client
+        apt-get -y install default-mysql-client
+        apt-get -y install default-libmysqlclient-dev
         while ! mysqladmin ping -h"mysql" --user="$MYSQL_ENV_MYSQL_USER" --password="$MYSQL_ENV_MYSQL_PASSWORD"; do
             sleep 1
         done
